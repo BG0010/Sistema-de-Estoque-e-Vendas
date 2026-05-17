@@ -21,8 +21,11 @@ while (True):
  op = int(input("Digite a opção desejada: "))
  if op == 1:
     from produto import cadastrarProduto
-    produto = cadastrarProduto()
-    print(produto)
+    lista_produtos = cadastrarProduto()
+    print(lista_produtos)
  elif op == 2:
     from produto import editarProduto
-    editarProduto(produto)  
+    editarProduto(lista_produtos)  
+ elif op == 3:
+   from produto import removerProdutoID
+   removerProdutoID(lista_produtos)

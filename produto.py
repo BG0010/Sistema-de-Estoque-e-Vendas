@@ -26,7 +26,10 @@ def cadastrarProduto():
     "data_cadastro": data_cadastro,
     "id_produto": id_produto
   }
-  return produto
+
+  lista_produtos = []
+  lista_produtos.append(produto)
+  return lista_produtos
 
 # Editar Produto
 def editarProduto(produto):
@@ -45,3 +48,16 @@ def editarProduto(produto):
     print("Produto editado com sucesso!")
   else:
     print("ID não encontrado!")
+
+def removerProdutoID(lista_produtos):
+  print("Digite o ID que deseja remover: ")
+  id_remover = int(input())
+
+  for produto in lista_produtos:
+    if id_remover == produto["id_produto"]:
+      lista_produtos.remove(produto)
+      print("O Produto foi removido com sucesso!")
+      print("Produto removido: ", produto)
+      break
+  else:
+    print("ID não encontrado!")  
