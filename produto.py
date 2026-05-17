@@ -61,3 +61,14 @@ def removerProdutoID(lista_produtos):
       break
   else:
     print("ID não encontrado!")  
+
+def buscarProdutoID(lista_produtos):
+  print("Digite o ID que deseja buscar: ")
+  id_buscar = int(input())
+
+  for produto in lista_produtos:
+    if id_buscar == produto["id_produto"]:
+      print("Produto encontrado: ", produto)
+      break
+  else:
+    print("ID não encontrado!")

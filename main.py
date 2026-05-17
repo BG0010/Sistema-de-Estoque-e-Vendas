@@ -29,3 +29,7 @@ while (True):
  elif op == 3:
    from produto import removerProdutoID
    removerProdutoID(lista_produtos)
+ elif op == 4:
+   from produto import buscarProdutoID
+   buscarProdutoID(lista_produtos)
+   
