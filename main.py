@@ -19,17 +19,21 @@ while (True):
 ╚══════════════════════════════════════════════════╝
 """)
  op = int(input("Digite a opção desejada: "))
- if op == 1:
-    from produto import cadastrarProduto
-    lista_produtos = cadastrarProduto()
-    print(lista_produtos)
- elif op == 2:
-    from produto import editarProduto
-    editarProduto(lista_produtos)  
- elif op == 3:
-   from produto import removerProdutoID
-   removerProdutoID(lista_produtos)
- elif op == 4:
-   from produto import buscarProdutoID
-   buscarProdutoID(lista_produtos)
+ match op:
+  
+   case 1:
+      from produto import cadastrarProduto
+      lista_produtos = cadastrarProduto()
+   case 2:
+      from produto import editarProduto
+      editarProduto(lista_produtos[0])
+   case 3:
+      from produto import removerProdutoID
+      removerProdutoID(lista_produtos)
+   case 4:
+     from produto import buscarProdutoID
+     buscarProdutoID(lista_produtos)
+   case 5:
+     from produto import buscarProdutoNome
+     buscarProdutoNome(lista_produtos)           
    
