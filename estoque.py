@@ -1,25 +1,51 @@
 # Venda
 
 def realizarVenda(lista_produtos):
-  print("Digite o ID do produto que deseja vender: ")
-  id_venda = int(input())
-  for produto in lista_produtos:
-    if id_venda == produto["id_produto"]:
-      print("Produto encontrado: ", produto)
-      print("Digite a quantidade que deseja vender: ")
-      quantidade_venda = int(input())
-      if quantidade_venda <= produto["quantidade"]:
-        produto["quantidade"] -= quantidade_venda
-        print("Venda realizada com sucesso!")
-        print("Produto atualizado: ", produto)
-      else:
-        print("Quantidade insuficiente em estoque!")
-      break
-  else:
-    print("ID não encontrado!")
+
+    id_venda = int(input("Digite o código do produto que deseja vender: "))
+
+    for produto in lista_produtos:
+
+        if produto["codigo"] == id_venda:
+
+            print("\nProduto encontrado:")
+            print(produto)
+
+            quantidade_venda = int(
+                input("Digite a quantidade que deseja vender: ")
+            )
+
+            if quantidade_venda <= 0:
+                print("Quantidade inválida.")
+                return
+
+            if quantidade_venda <= produto["quantidade"]:
+
+                produto["quantidade"] -= quantidade_venda
+
+                print("Venda realizada com sucesso!")
+                print("Quantidade restante:",
+                      produto["quantidade"])
+
+            else:
+                print("Quantidade insuficiente em estoque!")
+
+            return
+
+    print("Produto não encontrado!")
+
 
 def relatorioEstoqueBaixo(lista_produtos):
-  print("Relatório de estoque baixo:")
-  for produto in lista_produtos:
-    if produto["quantidade"] < 5:
-      print(produto)
+
+    print("\nRelatório de estoque baixo:\n")
+
+    encontrou = False
+
+    for produto in lista_produtos:
+
+        if produto["quantidade"] < 5:
+            print(produto)
+            encontrou = True
+
+    if not encontrou:
+        print("Nenhum produto com estoque baixo.")
