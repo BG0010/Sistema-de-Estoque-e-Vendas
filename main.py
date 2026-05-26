@@ -52,7 +52,10 @@ while True:
         case 7:
             from produto import listarProdutosCodigo
             listarProdutosCodigo(lista_produtos)   
-
+        case 8:
+            from produto import listarProdutosCategoria
+            listarProdutosCategoria(lista_produtos)
+            
         case 0:
             print("Encerrando...")
             break

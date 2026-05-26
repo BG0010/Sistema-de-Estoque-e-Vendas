@@ -17,3 +17,9 @@ def realizarVenda(lista_produtos):
       break
   else:
     print("ID não encontrado!")
+
+def relatorioEstoqueBaixo(lista_produtos):
+  print("Relatório de estoque baixo:")
+  for produto in lista_produtos:
+    if produto["quantidade"] < 5:
+      print(produto)

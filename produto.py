@@ -88,4 +88,17 @@ def listarProdutosCodigo(lista_produtos):
   print("Produtos listados por código: ")
   for produto in sorted(lista_produtos, key=lambda x: x["id_produto"]):
     print(produto)
-    
+
+def listarProdutosCategoria(lista_produtos):
+    categoria = input("Digite a categoria: ").lower()
+    print("\nProdutos encontrados:\n")
+    encontrou = False
+
+    for produto in lista_produtos:
+
+        if produto["categoria"].lower() == categoria:
+            print(produto)
+            encontrou = True
+
+    if not encontrou:
+        print("Nenhum produto encontrado.")
