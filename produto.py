@@ -72,7 +72,7 @@ def buscarProdutoID(lista_produtos):
       break
   else:
     print("ID não encontrado!")
-
+# Buscar produto por nome
 def buscarProdutoNome(lista_produtos):
   print("Digite o nome do produto que deseja buscar: ")
   nome_buscar = str(input())
@@ -82,4 +82,5 @@ def buscarProdutoNome(lista_produtos):
       print("Produto encontrado: ", produto)
       break
   else:
-    print("Produto não encontrado!")   
+    print("Produto não encontrado!")
+
