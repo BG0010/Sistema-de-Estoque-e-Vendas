@@ -6,7 +6,7 @@ def realizarVenda(lista_produtos):
 
     for produto in lista_produtos:
 
-        if produto["codigo"] == id_venda:
+        if produto["id_produto"] == id_venda:
 
             print("\nProduto encontrado:")
             print(produto)
