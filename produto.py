@@ -84,3 +84,8 @@ def buscarProdutoNome(lista_produtos):
   else:
     print("Produto não encontrado!")
 
+def listarProdutosCodigo(lista_produtos):
+  print("Produtos listados por código: ")
+  for produto in sorted(lista_produtos, key=lambda x: x["id_produto"]):
+    print(produto)
+    
