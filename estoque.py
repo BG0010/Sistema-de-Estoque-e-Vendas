@@ -37,15 +37,24 @@ def realizarVenda(lista_produtos):
 
 def relatorioEstoqueBaixo(lista_produtos):
 
+    limite = int(
+        input("Digite o limite de estoque: ")
+    )
+
     print("\nRelatório de estoque baixo:\n")
 
     encontrou = False
 
     for produto in lista_produtos:
 
-        if produto["quantidade"] < 5:
+        if produto["quantidade"] < limite:
+
             print(produto)
+
             encontrou = True
 
     if not encontrou:
-        print("Nenhum produto com estoque baixo.")
+
+        print(
+            "Nenhum produto com estoque abaixo do limite."
+        )
