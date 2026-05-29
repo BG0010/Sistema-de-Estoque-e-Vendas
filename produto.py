@@ -75,14 +75,35 @@ def removerProdutoID(lista_produtos):
 # Buscar por ID
 def buscarProdutoID(lista_produtos):
 
+    lista_ordenada = sorted(
+        lista_produtos,
+        key=lambda x: x["id_produto"]
+    )
+
     id_buscar = int(input("Digite o ID: "))
 
-    for produto in lista_produtos:
+    inicio = 0
+    fim = len(lista_ordenada) - 1
+
+    while inicio <= fim:
+
+        meio = (inicio + fim) // 2
+
+        produto = lista_ordenada[meio]
 
         if produto["id_produto"] == id_buscar:
 
+            print("Produto encontrado:")
             print(produto)
             return
+
+        elif produto["id_produto"] < id_buscar:
+
+            inicio = meio + 1
+
+        else:
+
+            fim = meio - 1
 
     print("Produto não encontrado.")
 
