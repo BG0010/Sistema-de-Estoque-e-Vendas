@@ -31,90 +31,150 @@ while True:
     match op:
 
         case 1:
+
             from produto import cadastrarProduto
 
             produto = cadastrarProduto()
+
             lista_produtos.append(produto)
 
+            # Mantém a lista ordenada por ID
+            lista_produtos.sort(
+                key=lambda x: x["id_produto"]
+            )
+
         case 2:
+
             if lista_produtos:
+
                 from produto import editarProduto
+
                 editarProduto(lista_produtos)
+
             else:
+
                 print("Nenhum produto cadastrado.")
 
         case 3:
+
             if lista_produtos:
+
                 from produto import removerProdutoID
+
                 removerProdutoID(lista_produtos)
+
             else:
+
                 print("Nenhum produto cadastrado.")
 
         case 4:
+
             if lista_produtos:
+
                 from produto import buscarProdutoID
+
                 buscarProdutoID(lista_produtos)
+
             else:
+
                 print("Nenhum produto cadastrado.")
 
         case 5:
+
             if lista_produtos:
+
                 from produto import buscarProdutoNome
+
                 buscarProdutoNome(lista_produtos)
+
             else:
+
                 print("Nenhum produto cadastrado.")
 
         case 6:
+
             if lista_produtos:
+
                 from estoque import realizarVenda
+
                 realizarVenda(lista_produtos)
+
             else:
+
                 print("Nenhum produto cadastrado.")
 
         case 7:
+
             if lista_produtos:
+
                 from produto import listarProdutosCodigo
+
                 listarProdutosCodigo(lista_produtos)
+
             else:
+
                 print("Nenhum produto cadastrado.")
 
         case 8:
+
             if lista_produtos:
+
                 from produto import listarProdutosCategoria
+
                 listarProdutosCategoria(lista_produtos)
+
             else:
+
                 print("Nenhum produto cadastrado.")
 
         case 9:
+
             if lista_produtos:
+
                 from estoque import relatorioEstoqueBaixo
+
                 relatorioEstoqueBaixo(lista_produtos)
+
             else:
+
                 print("Nenhum produto cadastrado.")
 
         case 10:
 
-            from arquivos import salvarArquivo, carregarArquivo
+            from arquivos import (
+                salvarArquivo,
+                carregarArquivo
+            )
 
             print("""
 1 - Salvar dados
 2 - Carregar dados
 """)
 
-            escolha = input("Escolha: ")
+            escolha = input("Escolha: ").strip()
 
             if escolha == "1":
+
                 salvarArquivo(lista_produtos)
 
             elif escolha == "2":
+
                 lista_produtos = carregarArquivo()
 
+                # Mantém ordenado após carregar
+                lista_produtos.sort(
+                    key=lambda x: x["id_produto"]
+                )
+
             else:
+
                 print("Opção inválida.")
 
         case 0:
+
             print("Sistema encerrado.")
             break
 
         case _:
+
             print("Opção inválida.")
